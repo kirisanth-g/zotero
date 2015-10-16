@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<overlay id="hello"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <toolbarpalette id="BrowserToolbarPalette">
+	<toolbarbutton id="my-button" label="Hello, World"  />
+    </toolbarpalette>
+</overlay>
+
