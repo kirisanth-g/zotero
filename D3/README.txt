@@ -9,8 +9,10 @@ Note: The plugin as of Friday 23rd does not have any working functionality, most
 
 Reason for lack of progress:
 Tuesday 20th (Day 7):
+Dimitar - studying for an exam on October 21st
 Vincent - Exam on Wednesday the 21st, needed to study
 Wednesday 21st (Day 8):
+Dimitar - at school the entire day + evening exam
 Vincent - Class until 9, also had an exam
 Thursday 22nd (Day 9):
 Vincent - Working on assignments from other class
