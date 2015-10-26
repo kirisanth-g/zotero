@@ -4,3 +4,5 @@ To install plugin:
 3. On the Extensions tab on the left, click the Gear Button
 4. Click "Install Add-on From File..."
 5. Browse to plugin.xpi and choose it
+
+NOTE: Development Documentation.docx is a duplicate of Sprint Documentation. Please read Spring Documentation for final copy
