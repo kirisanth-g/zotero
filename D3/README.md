@@ -28,7 +28,7 @@ zhengna4 |Zheng, Nanson Yuan Zan |nanson.zheng@mail.utoronto.ca
 3. You may close Terminal. Follow installation steps above.
 
 ## Functionality
-Javascript functions 
+Javascript functions (Not in plugin in seperate file ./tag files)
  1. Finding items based on tag(s)
  2. Deleting specific tags from specified items 
 
