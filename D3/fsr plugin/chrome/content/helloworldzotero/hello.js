@@ -34,6 +34,10 @@ Zotero.HelloWorldZotero = {
 		};
 		Zotero.Items.add('computerProgram', data); // returns a Zotero.Item instance
 	},
+	myfunc: function() {
+		window.openDialog('chrome://helloworldzotero/content/test_win.xul',
+		'testWin','')
+	},
 	
 	// Callback implementing the notify() method to pass to the Notifier
 	notifierCallback: {
