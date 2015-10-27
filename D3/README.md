@@ -2,7 +2,7 @@
 
 Username  |Name |Email
 ----------|-----|---------------------------
-??? |Ganeshamoorthy, Kirisanth |k.ganeshamoorthy@mail.utoronto.ca
+kirisanth-g |Ganeshamoorthy, Kirisanth |k.ganeshamoorthy@mail.utoronto.ca
 ??? |Ho, Vincent |vincen.ho@mail.utoronto.ca
 ??? |Rao, Xibo (Robbie) |xiboyu.rao@mail.utoronto.ca
 ??? |Stratiev, Dimitar |dimitar.stratiev@mail.utoronto.ca
@@ -28,7 +28,9 @@ zhengna4 |Zheng, Nanson Yuan Zan |nanson.zheng@mail.utoronto.ca
 3. You may close Terminal. Follow installation steps above.
 
 ## Functionality
-Currently none.
+Javascript functions 
+ 1. Finding items based on tag(s)
+ 2. Deleting specific tags from specified items 
 
 ##Task Board 
 [Our Task Board can be found here.](https://trello.com/b/fvvxm7ym/sprint-1-task-board)
