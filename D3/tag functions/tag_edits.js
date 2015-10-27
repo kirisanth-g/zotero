@@ -15,18 +15,19 @@ function selectIdByTag(tag) {
 	tags.push(tag);
 	return selectIdByTags(tags);
 }
-Zotero.Tags.erase(ids);
 
 function deleteTagById(ids){
 	Zotero.Tags.erase(ids);
 }
 
+//Doesn't work
 function addTagsById(ids, tags){
 	for (var id in ids){
 		ids[id].addTags(tags);
 	}
 }
 
+// Doesn't work
 function addTagById(ids, tag){
 	var tags = [];
 	tags.push(tag);
