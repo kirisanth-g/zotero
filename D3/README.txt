@@ -4,7 +4,7 @@ To install plugin:
 3. On the Extensions tab on the left, click the Gear Button
 4. Click "Install Add-on From File..."
 5. Browse to plugin.xpi and choose it
-6. Click on Blue Gear Button on Blue Toolbar
+6. Click on Gear Button on Blue Toolbar
 7. Click on "test" for GUI
 
 NOTE: read "Sprint Documentation.docx" first
