@@ -1,12 +1,5 @@
-overlay    chrome://zotero/content/zoteroPane.xul chrome://zotero-team14/content/overlay.xul
+content	helloworldzotero				chrome/content/helloworldzotero/
+locale	helloworldzotero	en-US		chrome/locale/en-US/helloworldzotero/
+skin	helloworldzotero	default		chrome/skin/default/helloworldzotero/
 
-overlay    chrome://zotero/content/standalone/standalone.xul chrome://zotero-team14/content/overlay.xul
-
-overlay    chrome://zotero/content/preferences/preferences.xul chrome://zotero-team14/content/preferences.xul
-
-overlay    chrome://zotero/content/preferences/preferences.xul#cite chrome://zotero-team14/content/preferences.xul
-
-
-
-content		hello  chrome/
-contract	@zotero.org/Zotero/integration/application?agent=Team14;1 	{c7a7eec5-f073-4db4-b383-f866f4b96b1c}
+overlay	chrome://zotero/content/zoteroPane.xul	chrome://helloworldzotero/content/overlay.xul
