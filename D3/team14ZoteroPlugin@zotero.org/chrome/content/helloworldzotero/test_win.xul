@@ -2,23 +2,40 @@
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <window title="/root plugin" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <script type="application/javascript" stc="tag_edits.jsm"/>
+
     <script>
-         function addItem(){
-             document.getElementById('thelist').appendItem("test");
+         function addItem(item){
+             document.getElementById('list').appendItem(item);
 	 }
+
+	 function getInput(){
+	     input = document.getElementById('search');
+	     return (input.value);
+	 }
+
+	 function selected(){
+	     var tags = document.getElementById('list');
+	     for (items in tags) {
+		if (items.selected()){
+			document.getElementsById('list').appendItem("DIDIT");
+		}
+	     }
+ 	 }
     </script>
+
     <box>
-        <textbox id="search" label="Enter a tag" width = "450" control="search"/>
+	<label control="search" value="Enter a tag"/>
+        <textbox id="search" width = "450"/>
     </box>
     <box>
-   	 <button label="Search" oncommand="addItem();"/>
+   	 <button label="Search" oncommand="addItem(getInput());"/>
     </box>
     <box>
-    <listbox id="thelist" width="450">
-    </listbox>
+    <listbox id="list" width="450" selected="false"/>
     </box>
     <box>
-        <button label="Untag File"/>
+        <button label="Untag File" oncommand="selected();"/>
         <button label="Untag All Files"/>
+	<button label="Modify Tag of File(s)"/>
     </box>
 </window>
