@@ -1,17 +1,20 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<window title="/root plugin" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/javascript" stc="tag_edits.jsm"/>
+    <script>
+         function addItem(){
+             document.getElementById('thelist').appendItem("test");
+	 }
+    </script>
     <box>
-        <textbox id="search" value="tag" width = "450"/>
+        <textbox id="search" label="Enter a tag" width = "450" control="search"/>
     </box>
     <box>
-        <button label="Search"/>
+   	 <button label="Search" oncommand="addItem();"/>
     </box>
     <box>
-    <listbox width="450">
-        <listitem label="file1"/>
-        <listitem label="file2"/>
-        <listitem label="file3"/>
+    <listbox id="thelist" width="450">
     </listbox>
     </box>
     <box>
