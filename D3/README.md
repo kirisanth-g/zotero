@@ -34,7 +34,7 @@ Javascript functions (Not in plugin in seperate file ./tag files)
 
 Zotero Plugin GUI
  1. Click on Gear button on the blue toolbar on Zotero Standalone
- 2. click on "test"
+ 2. click on "/Root Plugin"
 
 ##Task Board 
 [Our Task Board can be found here.](https://trello.com/b/fvvxm7ym/sprint-1-task-board)

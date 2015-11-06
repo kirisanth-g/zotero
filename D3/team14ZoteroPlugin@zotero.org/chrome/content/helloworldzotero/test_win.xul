@@ -1,34 +1,13 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<window title="/root plugin" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-    <script type="application/javascript" stc="tag_edits.jsm"/>
-
-    <script>
-         function addItem(item){
-             document.getElementById('list').appendItem(item);
-	 }
-
-	 function getInput(){
-	     input = document.getElementById('search');
-	     return (input.value);
-	 }
-
-	 function selected(){
-	     var tags = document.getElementById('list');
-	     for (items in tags) {
-		if (items.selected()){
-			document.getElementsById('list').appendItem("DIDIT");
-		}
-	     }
- 	 }
-    </script>
-
+<window title="/Root plugin" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="text/javascript" src="chrome://helloworldzotero/content/tag_edits.js"/>
     <box>
 	<label control="search" value="Enter a tag"/>
-        <textbox id="search" width = "450"/>
+        <textbox id="search bar" width = "450"/>
     </box>
     <box>
-   	 <button label="Search" oncommand="addItem(getInput());"/>
+   	 <button label="Search" oncommand="addItem();clear();"/>
     </box>
     <box>
     <listbox id="list" width="450" selected="false"/>

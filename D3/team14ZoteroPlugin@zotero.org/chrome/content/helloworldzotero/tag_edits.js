@@ -1,4 +1,14 @@
-var tags = "";
+function addItem(){
+	var input = document.getElementById('search bar');
+	document.getElementById('list').appendItem(input.value);
+
+}
+
+function clear(){
+	var list = document.getElementById('list');
+	list.SelectAll();
+	list.ClearSelection();
+}
 
 function selectIdByTags(tags) {
 	var ids = [];

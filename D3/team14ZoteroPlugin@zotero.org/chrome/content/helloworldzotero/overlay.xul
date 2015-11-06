@@ -2,19 +2,17 @@
 <?xml-stylesheet href="chrome://fsroot/skin/overlay.css" type="text/css"?>
 <!DOCTYPE window SYSTEM "chrome://helloworldzotero/locale/hello.dtd">
 
-<overlay id="helloworldzotero-overlay"
-	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-	
+<overlay id="helloworldzotero-overlay"	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<stringbundleset id="stringbundleset">
 		<stringbundle id="hello-world-zotero-strings"
 			src="chrome://helloworldzotero/locale/hello.properties"/>
 	</stringbundleset>
-	
+
 	<menupopup id="zotero-tb-actions-popup">
 		<!-- Make sure the menu separator for utilities is visible -->
 		<menuseparator id="zotero-tb-actions-plugins-separator" hidden="false"/>
-		<menuitem insertbefore="zotero-tb-actions-separator" label="test"
-			oncommand="Zotero.HelloWorldZotero.myfunc()"/>
+		<menuitem insertbefore="zotero-tb-actions-separator" label="/Root Plugin"
+			oncommand="Zotero.RootPlugin.myfunc()"/>
 	</menupopup>
 	
 	<!-- Include the main extension logic -->

@@ -1,3 +1,18 @@
+function addItem(item){
+	 tags = selectIdByTags(item);
+	 for (elements in tags){
+	 	    document.getElementById('list').appendItem(elements);
+	 	}
+}
+
+function getInput(){
+     input = document.getElementById('search');
+     return (input.value);
+}
+		document.getElementsById('list').appendItem("DIDIT");
+	}
+     }
+
 function selectIdByTags(tags) {
 	var ids = [];
 	var allTags = Zotero.Tags.search();
@@ -19,15 +34,14 @@ function selectIdByTag(tag) {
 function deleteTagById(ids){
 	Zotero.Tags.erase(ids);
 }
-
-//Doesn't work
+	//Doesn't work
 function addTagsById(ids, tags){
 	for (var id in ids){
 		ids[id].addTags(tags);
 	}
 }
 
-// Doesn't work
+	// Doesn't work
 function addTagById(ids, tag){
 	var tags = [];
 	tags.push(tag);
@@ -38,6 +52,4 @@ function replaceTag(old_tag, new_tag){
 	var ids = selectIdByTag(old_tag);
 	deleteTagById(ids);
 	addTagsById(ids, new_tag);
-}
-
 }
