@@ -13,7 +13,7 @@
     <listbox id="list" width="450"/>
     </box>
     <box>
-        <button label="Untag File"/>
+        <button label="Untag File" oncommand="unTagOne();"/>
         <button label="Untag All Files"/>
 	<button label="Modify Tag of File(s)"/>
     </box>

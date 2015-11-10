@@ -8,16 +8,16 @@ function addItem(){
 	}
 }
 
-function clear(){
-	var list = document.getElementById('list');
-	list.SelectAll();
-	list.ClearSelection();
+function unTagOne(){
+	var file = document.getElementById('list');
+	selected = file.selectedItem();
+	if (selected != null){
+		
+	}
 }
 
-function testSelectbyTags(tags){
-	var search = new Zotero.Search();
-	search.addCondition(tags);
-	return search;
+function clear(){
+	document.getElementById('list').SelectAll().ClearSelection();
 }
 
 function selectIdByTags(tags) {
