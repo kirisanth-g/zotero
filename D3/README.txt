@@ -7,4 +7,6 @@ To install plugin:
 6. Click on Gear Button on Blue Toolbar on the Zotero GUI
 7. Click on "/Root Plugin" for plugin
 
-NOTE: read "Sprint Documentation.docx" first
+NOTE:
+- All the latest files are in the Incorporation branch
+- Read "Sprint Documentation.docx" for updated information.
