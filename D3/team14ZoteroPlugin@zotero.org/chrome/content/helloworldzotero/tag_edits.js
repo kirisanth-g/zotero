@@ -1,7 +1,10 @@
 function addItem(){
+	//clear();
 	var input = document.getElementById('search bar');
-	document.getElementById('list').appendItem(input.value);
-
+	var tags = selectIdByTag(input.value);
+	for (var files in tags){
+		document.getElementById('list').appendItem(input.value);
+	}
 }
 
 function clear(){

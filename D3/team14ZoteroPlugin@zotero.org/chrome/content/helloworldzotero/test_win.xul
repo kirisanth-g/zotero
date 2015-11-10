@@ -7,13 +7,13 @@
         <textbox id="search bar" width = "450"/>
     </box>
     <box>
-   	 <button label="Search" oncommand="addItem();clear();"/>
+   	 <button label="Search" oncommand="addItem();"/>
     </box>
     <box>
-    <listbox id="list" width="450" selected="false"/>
+    <listbox id="list" width="450"/>
     </box>
     <box>
-        <button label="Untag File" oncommand="selected();"/>
+        <button label="Untag File"/>
         <button label="Untag All Files"/>
 	<button label="Modify Tag of File(s)"/>
     </box>
