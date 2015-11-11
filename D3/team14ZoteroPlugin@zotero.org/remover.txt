@@ -1,0 +1,10 @@
+var tags = ["trash", "bar", "baz"];
+var ids = [];
+var allTags = Zotero.Tags.search();
+tags = tags.map(tag => tag.toLowerCase());
+for (var id in allTags) {
+    if (tags.indexOf(allTags[id].name.toLowerCase()) != -1) {
+      ids.push(id);
+    }
+}
+Zotero.Tags.erase(ids);

@@ -2,9 +2,14 @@ var Zotero = Components.classes["@zotero.org/Zotero;1"].getService(Components.in
 
 function addItem(){
 	var input = document.getElementById('search bar');
-	var ids = selectIdByTag(input.value);
-	for (var files in ids){
-		document.getElementById('list').appendItem(files);
+	document.getElementById('list').appendItem(input.value);
+	//var item = new Zotero.Item;
+	var tgs = [input.value];
+	var ids = getItemByTag(input.value);
+	for (var id in ids) {
+		//item = new Zotero.Items.get(id);
+		document.getElementById('list').appendItem(id);
+		//document.getElementById('list').appendItem(item.getField('title'));
 	}
 }
 
@@ -12,7 +17,6 @@ function unTagOne(){
 	var file = document.getElementById('list');
 	selected = file.selectedItem();
 	if (selected != null){
-		
 	}
 }
 
@@ -20,7 +24,15 @@ function clear(){
 	document.getElementById('list').SelectAll().ClearSelection();
 }
 
-function selectIdByTags(tags) {
+function getItemByTag(t){
+	var search = new Zotero.Search();
+	search.addCondition('tag', 'is', t);
+	var results = search.search();
+	var items = Zotero.Items.get(results);
+	return results;
+}
+
+function getTagsID(tags) {
 	var ids = [];
 	var allTags = Zotero.Tags.search();
 	tags = tags.map(tag => tag.toLowerCase());
