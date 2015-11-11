@@ -1,3 +1,5 @@
+var Zotero = Components.classes["@zotero.org/Zotero;1"].getService(Components.interfaces.nsISupports).wrappedJSObject;
+
 function addItem(){
 	var input = document.getElementById('search bar');
 	document.getElementById('list').appendItem(input.value);
@@ -11,10 +13,15 @@ function addItem(){
 	}
 }
 
+function unTagOne(){
+	var file = document.getElementById('list');
+	selected = file.selectedItem();
+	if (selected != null){
+	}
+}
+
 function clear(){
-	var list = document.getElementById('list');
-	list.SelectAll();
-	list.ClearSelection();
+	document.getElementById('list').SelectAll().ClearSelection();
 }
 
 function getItemByTag(t){
@@ -34,7 +41,7 @@ function getTagsID(tags) {
 	      ids.push(id);
 	    }
 	}
-	return ids
+	return ids;
 }
 
 function selectIdByTag(tag) {
