@@ -1,7 +1,14 @@
 function addItem(){
 	var input = document.getElementById('search bar');
 	document.getElementById('list').appendItem(input.value);
-
+	//var item = new Zotero.Item;
+	var tgs = [input.value];
+	var ids = getItemByTag(input.value);
+	for (var id in ids) {
+		//item = new Zotero.Items.get(id);
+		document.getElementById('list').appendItem(id);
+		//document.getElementById('list').appendItem(item.getField('title'));
+	}
 }
 
 function clear(){
@@ -10,7 +17,15 @@ function clear(){
 	list.ClearSelection();
 }
 
-function selectIdByTags(tags) {
+function getItemByTag(t){
+	var search = new Zotero.Search();
+	search.addCondition('tag', 'is', t);
+	var results = search.search();
+	var items = Zotero.Items.get(results);
+	return results;
+}
+
+function getTagsID(tags) {
 	var ids = [];
 	var allTags = Zotero.Tags.search();
 	tags = tags.map(tag => tag.toLowerCase());
