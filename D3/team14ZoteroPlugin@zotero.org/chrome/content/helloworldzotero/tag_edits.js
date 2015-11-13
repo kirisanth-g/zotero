@@ -1,24 +1,27 @@
 var Zotero = Components.classes["@zotero.org/Zotero;1"].getService(Components.interfaces.nsISupports).wrappedJSObject;
 
 function addItem(){
+	var displayList = document.getElementById('list');
+	// Clear the Search list
+	clear();
+	//document.getElementById('list').removeAllItems();
+	// Pull the current input in the search field
 	var input = document.getElementById('search bar');
 	var items = getItemByTag(input.value);
+	// If items exists with said tag, display in the list
 	if (items){
 		for (index in items){
-			var item = Zotero.Items.get(index);
-			document.getElementById('list').appendItem(item.getFilename());
+			displayList.appendItem(index);
 		}
 	}
 }
 
-//SEMI WORKING, put "test" into search bar will delete tag if ALL files have this tag
+/* Deletes the Tag from all items */
 function deleteTags(){
 	var input = document.getElementById('search bar');
 	if (input != null){
-		var items = getItemByTag(input.value);
-		for (var el in items){
-			deleteTagById(el);
-		}
+		var items = getTagID(input.value);
+		deleteTagById(items);
 	}
 }
 
@@ -29,19 +32,24 @@ function deleteTags(){
 	}
 }*/
 
+/* Clears the search field */
 function clear(){
-	document.getElementById('list').SelectAll().ClearSelection();
+	var displayList = document.getElementById('list');
+    var count = displayList.itemCount;
+    while(count-- > 0){
+        displayList.removeItemAt(0);
+    }
 }
 
-//NOT WORKING PROPERLY
+/* Returns the ID of items given a tag */
 function getItemByTag(t){
 	var search = new Zotero.Search();
 	search.addCondition('tag', 'is', t);
 	var results = search.search();
-	return results;
+	return Zotero.Items.get(results);
 }
 
-//DON'T THINK THIS WORKS, returns empty list
+/* Returns the ID of tags given a list of tags */
 function getTagsID(tags) {
 	var ids = [];
 	var allTags = Zotero.Tags.search();
@@ -54,16 +62,19 @@ function getTagsID(tags) {
 	return ids;
 }
 
-function selectIdByTag(tag) {
+/* Returns the ID of tags given a tag */
+function getTagID(tag) {
 	var tags = [];
 	tags.push(tag);
-	return selectIdByTags(tags);
+	return getTagsID(tags);
 }
 
+/* Delete the tag given a list of tags */
 function deleteTagById(ids){
 	Zotero.Tags.erase(ids);
 }
-	//Doesn't work
+
+//--------------------------Doesn't work----------------------------
 function addTagsById(ids, tags){
 	for (var id in ids){
 		ids[id].addTags(tags);
@@ -78,7 +89,7 @@ function addTagById(ids, tag){
 }
 
 function replaceTag(old_tag, new_tag){
-	var ids = selectIdByTag(old_tag);
+	var ids = getTagID(old_tag);
 	deleteTagById(ids);
 	addTagsById(ids, new_tag);
 }
