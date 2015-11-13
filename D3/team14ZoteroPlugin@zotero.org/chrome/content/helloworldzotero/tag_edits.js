@@ -2,23 +2,28 @@ var Zotero = Components.classes["@zotero.org/Zotero;1"].getService(Components.in
 
 function addItem(){
 	var input = document.getElementById('search bar');
-	document.getElementById('list').appendItem(input.value);
-	//var item = new Zotero.Item;
-	var tgs = [input.value];
-	var ids = getItemByTag(input.value);
-	for (var id in ids) {
-		//item = new Zotero.Items.get(id);
-		document.getElementById('list').appendItem(id);
-		//document.getElementById('list').appendItem(item.getField('title'));
+	var items = getItemByTag(input.value);
+	if (items){
+		for (index in items){
+			var item = Zotero.Items.get(index);
+			document.getElementById('list').appendItem(item.getFilename());
+		}
 	}
 }
 
-function unTagOne(){
+//add ONE tag, it will delete that one tag... not the "searched" tag
+function deleteTags(){
+	var input = document.getElementById('search bar');
+	var items = getItemByTag(input.value);
+	deleteTagById(items);
+}
+
+/*function unTagOne(){
 	var file = document.getElementById('list');
 	selected = file.selectedItem();
 	if (selected != null){
 	}
-}
+}*/
 
 function clear(){
 	document.getElementById('list').SelectAll().ClearSelection();
@@ -28,10 +33,10 @@ function getItemByTag(t){
 	var search = new Zotero.Search();
 	search.addCondition('tag', 'is', t);
 	var results = search.search();
-	var items = Zotero.Items.get(results);
 	return results;
 }
 
+//DON'T THINK THIS WORKS, returns empty list
 function getTagsID(tags) {
 	var ids = [];
 	var allTags = Zotero.Tags.search();
