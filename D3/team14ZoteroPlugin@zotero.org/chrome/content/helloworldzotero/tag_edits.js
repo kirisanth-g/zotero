@@ -11,12 +11,14 @@ function addItem(){
 	}
 }
 
-//add ONE tag, it will delete that one tag... not the "searched" tag. I added "apollo"
+//SEMI WORKING, put "test" into search bar will delete tag if ALL files have this tag
 function deleteTags(){
 	var input = document.getElementById('search bar');
 	if (input != null){
 		var items = getItemByTag(input.value);
-		deleteTagById(items);
+		for (var el in items){
+			deleteTagById(el);
+		}
 	}
 }
 
