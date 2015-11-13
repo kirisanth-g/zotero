@@ -11,11 +11,13 @@ function addItem(){
 	}
 }
 
-//add ONE tag, it will delete that one tag... not the "searched" tag
+//add ONE tag, it will delete that one tag... not the "searched" tag. I added "apollo"
 function deleteTags(){
 	var input = document.getElementById('search bar');
-	var items = getItemByTag(input.value);
-	deleteTagById(items);
+	if (input != null){
+		var items = getItemByTag(input.value);
+		deleteTagById(items);
+	}
 }
 
 /*function unTagOne(){
@@ -29,6 +31,7 @@ function clear(){
 	document.getElementById('list').SelectAll().ClearSelection();
 }
 
+//NOT WORKING PROPERLY
 function getItemByTag(t){
 	var search = new Zotero.Search();
 	search.addCondition('tag', 'is', t);
