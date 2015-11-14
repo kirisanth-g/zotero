@@ -4,10 +4,8 @@ function addItem(){
 	var displayList = document.getElementById('list');
 	// Clear the Search list
 	clear();
-	//document.getElementById('list').removeAllItems();
 	// Pull the current input in the search field
-	var input = document.getElementById('search bar');
-	var items = getItemByTag(input.value);
+	var items = getItemByTag(getSearchValue());
 	// If items exists with said tag, display in the list
 	if (items){
 		for (index in items){
@@ -16,12 +14,25 @@ function addItem(){
 	}
 }
 
+/* Return String value of user input from search bar with id 'search bar.' 
+   Return Null if user input is Null */
+function getSearchValue(){
+	var input = document.getElementById('search bar');
+	return (input.value);
+}
+
 /* Deletes the Tag from all items */
 function deleteTags(){
-	var input = document.getElementById('search bar');
+	clear();
+	var input = getSearchValue();
 	if (input != null){
-		var items = getTagID(input.value);
-		deleteTagById(items);
+		var items = getTagID(input);
+		if (items[0] != undefined){
+			deleteTagById(items);
+			document.getElementById('list').appendItem("'" + input + "' tag deleted from all files.");
+		} else 
+			//only works if tag was nonexistant to begin with
+			document.getElementById('list').appendItem("'" + input + "' tag does not exist.");
 	}
 }
 
@@ -69,7 +80,7 @@ function getTagID(tag) {
 	return getTagsID(tags);
 }
 
-/* Delete the tag given a list of tags */
+/* Delete the tag given a list of tags. DOES NOT ERASE FROM IDS*/
 function deleteTagById(ids){
 	Zotero.Tags.erase(ids);
 }
@@ -81,7 +92,7 @@ function addTagsById(ids, tags){
 	}
 }
 
-	// Doesn't work
+//------------------------- Doesn't work----------------------------
 function addTagById(ids, tag){
 	var tags = [];
 	tags.push(tag);
