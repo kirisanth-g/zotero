@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://fsroot/skin/overlay.css" type="text/css"?>
+<?xml-stylesheet href="chrome://skin/overlay.css" type="text/css"?>
 <!DOCTYPE window SYSTEM "chrome://helloworldzotero/locale/hello.dtd">
 
 <overlay id="helloworldzotero-overlay"	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
@@ -14,6 +14,9 @@
 		<menuitem insertbefore="zotero-tb-actions-separator" label="/Root Plugin"
 			oncommand="Zotero.RootPlugin.myfunc()"/>
 	</menupopup>
+
+	<!-- onpopupshowing="Zotero.Autolink.extendItemContextMenu();"-->
+   	<menuitem id="zotero-Root-Plugin" label="/Root Plugin" oncommand="Zotero.RootPlugin.myfunc();"/>
 	
 	<!-- Include the main extension logic -->
 	<script src="chrome://zotero/content/include.js"/>

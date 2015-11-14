@@ -7,5 +7,7 @@ Zotero.RootPlugin = {
 	},
 };
 
+
+
 // Initialize the utility
 window.addEventListener('load', function(e) { Zotero.RootPlugin.init(); }, false);

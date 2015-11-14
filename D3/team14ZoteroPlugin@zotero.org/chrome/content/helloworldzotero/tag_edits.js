@@ -1,41 +1,48 @@
 var Zotero = Components.classes["@zotero.org/Zotero;1"].getService(Components.interfaces.nsISupports).wrappedJSObject;
 
 function addItem(){
-	var displayList = document.getElementById('list');
 	// Clear the Search list
 	clear();
+	var displayList = document.getElementById('list');
 	// Pull the current input in the search field
-	var items = getItemByTag(getSearchValue());
+	var indices = getItemByTag(getSearchValue());
 	// If items exists with said tag, display in the list
-	if (items){
-		for (index in items){
-			displayList.appendItem(index);
+	if (indices){
+		for (index in indices){
+				var items = Zotero.Items.get(index);
+				displayList.appendItem(index);
+				if (items.isAttachment())
+					displayList.appendItem(item.getAttachments().filename);
 		}
-	}
+	} else 
+		displayList.appendItem("'" + getSearchValue() + "' tag does not exist.");
 }
 
-/* Return String value of user input from search bar with id 'search bar.' 
-   Return Null if user input is Null */
+/* Return Array of tags from user input id 'search bar.' 
+   Return Empty Array if user input is Null */
 function getSearchValue(){
 	var input = document.getElementById('search bar');
-	return (input.value);
+	return (input.value.split(' '));
 }
 
 /* Deletes the Tag from all items */
 function deleteTags(){
 	clear();
 	var input = getSearchValue();
-	if (input != null){
-		var items = getTagID(input);
-		if (items[0] != undefined){
-			deleteTagById(items);
-			document.getElementById('list').appendItem("'" + input + "' tag deleted from all files.");
-		} else 
-			//only works if tag was nonexistant to begin with
-			document.getElementById('list').appendItem("'" + input + "' tag does not exist.");
-	}
+	if (input[0].length != 0){
+		for (var i in input){
+			var items = getTagID(input[i]);
+			//If a file has tag
+			if (items[0] != undefined){
+				deleteTagById(items);
+				document.getElementById('list').appendItem("'" + input[i] + "' tag deleted from all files.");
+			//check if tag is nonexistant
+			} else 
+				document.getElementById('list').appendItem("'" + input[i] + "' tag does not exist.");
+		}
+	} else
+		document.getElementById('list').appendItem("no input from search bar");
 }
-
 /*function unTagOne(){
 	var file = document.getElementById('list');
 	selected = file.selectedItem();
