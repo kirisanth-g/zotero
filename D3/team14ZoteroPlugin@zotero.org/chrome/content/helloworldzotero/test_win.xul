@@ -9,14 +9,16 @@
         <textbox id="search bar" width = "450"/>
     </box>
     <box>
-   	 <button label="Search" oncommand="addItem();"/>
+        <button label="Show Searched Files" oncommand="addItem();"/>
     </box>
     <box>
-    <listbox id="list" width="450"/>
+        <listbox id="list" width="510"/>
     </box>
     <box>
-        <button label="Untag File" oncommand="unTagOne();"/>
+        <button label="Untag File(s)" oncommand="unTagOne();"/>
         <button label="Untag All Files" oncommand="deleteTags();"/>
-	<button label="Modify Tag of File(s)"/>
+	    <button label="Replace Tag of File(s)" oncommand="clickToReplaceTags();"/>
+        <button label="Add Tag to File(s)" />
+        <button label="Merge Tags"/>
     </box>
 </window>

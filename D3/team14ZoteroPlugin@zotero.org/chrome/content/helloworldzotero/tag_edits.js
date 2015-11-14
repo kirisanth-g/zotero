@@ -4,25 +4,51 @@ function addItem(){
 	// Clear the Search list
 	clear();
 	var displayList = document.getElementById('list');
-	// Pull the current input in the search field
-	var indices = getItemByTag(getSearchValue());
+	var tags = getSearchValue();
+	for (var i in tags){
+		// Pull the current input in the search field
+		var indices = getItemByTag(tags[i]);
 	// If items exists with said tag, display in the list
-	if (indices){
-		for (index in indices){
-				var items = Zotero.Items.get(index);
-				displayList.appendItem(index);
-				if (items.isAttachment())
-					displayList.appendItem(item.getAttachments().filename);
-		}
-	} else 
-		displayList.appendItem("'" + getSearchValue() + "' tag does not exist.");
+		if (indices){
+			for (index in indices){
+					var items = Zotero.Items.get(index);
+					if (items.isAttachment())
+						displayList.appendItem("att");
+					else if (items.isCollection())
+						displayList.appendItem("ncoll");
+					else if (items.isNote())
+						displayList.appendItem("notes");
+					else if (items.isRegularItem())
+						displayList.appendItem("reg");
+			}
+		} else 
+			//DISPLAY ALL FILES HERE
+			displayList.appendItem("'" + getSearchValue() + "' tag does not exist.");
+	}
 }
+
 
 /* Return Array of tags from user input id 'search bar.' 
    Return Empty Array if user input is Null */
 function getSearchValue(){
 	var input = document.getElementById('search bar');
 	return (input.value.split(' '));
+}
+
+function clickToReplaceTags(){
+	clear();
+	var input = getSearchValue();
+	if (input[0].length != 0){
+		if (input[1] == undefined)
+			document.getElementById('list').appendItem("No replacement input");
+		else {
+			if (replaceTag(input[0], input[1]) == 0)
+				document.getElementById('list').appendItem("'" + input[0] + "' replaced by " + input[1] +" in all files.");
+			else
+				document.getElementById('list').appendItem("'" + input[0] + "' tag does not exist.");
+		}
+	} else
+		document.getElementById('list').appendItem("no input from search bar");
 }
 
 /* Deletes the Tag from all items */
@@ -94,9 +120,8 @@ function deleteTagById(ids){
 
 //--------------------------Doesn't work----------------------------
 function addTagsById(ids, tags){
-	for (var id in ids){
-		ids[id].addTags(tags);
-	}
+	var item = Zotero.Items.get(ids);
+	item.setField("tag", tags);
 }
 
 //------------------------- Doesn't work----------------------------
@@ -108,6 +133,11 @@ function addTagById(ids, tag){
 
 function replaceTag(old_tag, new_tag){
 	var ids = getTagID(old_tag);
-	deleteTagById(ids);
-	addTagsById(ids, new_tag);
+	if (ids[0].length != 0){
+		deleteTagById(ids);
+		addTagsById(ids, new_tag);
+		return (0);
+	}
+	else 
+		return (1);
 }
