@@ -3,22 +3,20 @@
 <window title="/Root plugin" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <script src="chrome://zotero/content/include.js"/>
     <script src="chrome://helloworldzotero/content/include.js" type="application/javascript;version=1.8"/>
-    <script type="text/javascript" src="chrome://helloworldzotero/content/tag_edits.js"/>
     <box>
 	<label control="search" value="Enter a tag"/>
         <textbox id="search bar" width = "450"/>
     </box>
     <box>
-        <button label="Show Searched Files" oncommand="addItem();"/>
+        <button label="Show All Tags" oncommand="Zotero.RootPlugin.loadAllTags();"/>
     </box>
     <box>
-        <listbox id="list" width="510"/>
+        <listbox id="taglist" width="510"> </listbox>
     </box>
     <box>
-        <button label="Untag File(s)" oncommand="unTagOne();"/>
-        <button label="Untag All Files" oncommand="deleteTags();"/>
+        <button label="Untag All Files(s)" oncommand="deleteTags();"/>
 	    <button label="Replace Tag of File(s)" oncommand="clickToReplaceTags();"/>
         <button label="Add Tag to File(s)" />
-        <button label="Merge Tags"/>
+        <button label="Merge Tags" oncommand="Zotero.RootPlugin.Merge();"/>
     </box>
 </window>

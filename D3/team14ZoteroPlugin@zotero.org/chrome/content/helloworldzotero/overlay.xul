@@ -12,11 +12,11 @@
 		<!-- Make sure the menu separator for utilities is visible -->
 		<menuseparator id="zotero-tb-actions-plugins-separator" hidden="false"/>
 		<menuitem insertbefore="zotero-tb-actions-separator" label="/Root Plugin"
-			oncommand="Zotero.RootPlugin.myfunc()"/>
+			oncommand="Zotero.RootPlugin.openWindow()"/>
 	</menupopup>
 
 	<!-- onpopupshowing="Zotero.Autolink.extendItemContextMenu();"-->
-   	<menuitem id="zotero-Root-Plugin" label="/Root Plugin" oncommand="Zotero.RootPlugin.myfunc();"/>
+   	<menuitem id="zotero-Root-Plugin" label="/Root Plugin" oncommand="Zotero.RootPlugin.openWindow();"/>
 	
 	<!-- Include the main extension logic -->
 	<script src="chrome://zotero/content/include.js"/>

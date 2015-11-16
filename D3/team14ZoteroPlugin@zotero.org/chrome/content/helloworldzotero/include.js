@@ -7,4 +7,5 @@ if (!Zotero.RootPlugin) {
 	var Zotero = Components.classes["@zotero.org/Zotero;1"]
 				.getService(Components.interfaces.nsISupports)
 				.wrappedJSObject;
+
 }

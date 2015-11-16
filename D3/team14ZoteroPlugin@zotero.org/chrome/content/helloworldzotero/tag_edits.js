@@ -1,4 +1,5 @@
-var Zotero = Components.classes["@zotero.org/Zotero;1"].getService(Components.interfaces.nsISupports).wrappedJSObject;
+Zotero.tag_edits = {
+//var Zotero = Components.classes["@zotero.org/Zotero;1"].getService(Components.interfaces.nsISupports).wrappedJSObject;
 
 function addItem(){
 	// Clear the Search list
@@ -141,3 +142,5 @@ function replaceTag(old_tag, new_tag){
 	else 
 		return (1);
 }
+
+} // end file
